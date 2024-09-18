@@ -43,7 +43,7 @@ Para disponibilizar las funciones desarrolladas mediante api consumibles desde i
 ### Api
 
 Se pueden consultar los distintos endpoints en la siguiente url:
-https://pi-mlops-guille-veron.onrender.com/docs
+https://pi-mlops-veron.onrender.com
 
 ## Contacto
 
