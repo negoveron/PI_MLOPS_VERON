@@ -3,6 +3,7 @@ import numpy as np
 from fastapi import FastAPI
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
+from fastapi.responses import RedirectResponse
     
 app = FastAPI()
 
@@ -10,6 +11,11 @@ app = FastAPI()
 
 # Endpoints de la API
 # @profile
+
+@app.get("/", include_in_schema=False)
+async def docs_redirect():
+    return RedirectResponse(url='/docs')
+
 @app.get('/cantidad_filmaciones_mes/{mes}')
 async def cantidad_filmaciones_mes(mes: str):
 
@@ -149,5 +155,5 @@ async def recomendacion(titulo: str):
         return {"recomendaciones":df_recom}
         
     except Exception as e:
-        return {"error": str(e)}     
+        return {"No se encontró la pelicula. Intente con: 'Toy Story', 'Guardian Angel', 'Taxi Driver', entre otras. Error": str(e)}     
     
